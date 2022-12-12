@@ -1,8 +1,54 @@
-@element: 2px;
-@left: 6px;
+@element: 1em;
+@left: 3.5em;
+@sep-between-element: 20px;
 
-#header {
+
+
+.toplevel-padded {
     padding: @element;
     padding-left: @left;
-    background-color: aqua;
+
+    @media screen and (max-width: 720px) {
+        padding-left: @element;
+    }
+}
+
+body {
+    margin: 0;
+}
+
+#header {
+    .toplevel-padded();
+    background-color: #224466;
+    color:white;
+}
+
+#page-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+#welcome {
+    .toplevel-padded();
+}
+
+#banner {
+    font-weight: bold;
+    font-size: 32px;
+    padding-bottom: @sep-between-element;
+}
+
+.input {
+    margin-bottom: @sep-between-element;
+    width: 30vw;
+    @media screen and (max-width: 720px) {
+        width: auto;
+        margin-right: @left;
+    }
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    .toplevel-padded();
 }
