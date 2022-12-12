@@ -4,7 +4,7 @@ class Login extends Component {
 
     render() {
         return (
-            <div>欢迎使用香蜜至家服务人员管理系统！</div>
+            <div id='header'>欢迎使用香蜜至家服务人员管理系统！</div>
         );
     }
 }
