@@ -60,3 +60,18 @@ body {
     padding-left: 1em;
   }
 }
+#button {
+  display: flex;
+  padding: 1em;
+  padding-left: 3.5em;
+}
+@media screen and (max-width: 720px) {
+  #button {
+    padding-left: 1em;
+  }
+}
+@media screen and (max-width: 720px) {
+  #button {
+    flex-direction: column;
+  }
+}

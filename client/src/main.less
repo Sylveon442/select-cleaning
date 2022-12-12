@@ -52,3 +52,11 @@ body {
     flex-direction: column;
     .toplevel-padded();
 }
+
+#button {
+    display: flex;
+    .toplevel-padded();
+    @media screen and (max-width: 720px) {
+        flex-direction: column;
+    }
+}

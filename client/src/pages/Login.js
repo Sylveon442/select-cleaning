@@ -16,6 +16,10 @@ class Login extends Component {
                     <Input className='input' />
                     <Input className='input' />
                 </div>
+                <div id='buttons'>
+                    <Button>登录</Button>
+                    <Button>注册</Button>
+                </div>
             </div>
         );
     }
