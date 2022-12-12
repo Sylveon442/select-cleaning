@@ -17,8 +17,8 @@ class Login extends Component {
                     <Input className='input' />
                 </div>
                 <div id='buttons'>
-                    <Button>登录</Button>
-                    <Button>注册</Button>
+                    <Button className="button" type='primary'>登录</Button>
+                    <Button className="button">注册</Button>
                 </div>
             </div>
         );

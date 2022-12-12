@@ -2,12 +2,13 @@
 @left: 3.5em;
 @sep-between-element: 20px;
 
-
+html {
+    background-color: bisque;
+}
 
 .toplevel-padded {
     padding: @element;
     padding-left: @left;
-
     @media screen and (max-width: 720px) {
         padding-left: @element;
     }
@@ -43,7 +44,7 @@ body {
     width: 30vw;
     @media screen and (max-width: 720px) {
         width: auto;
-        margin-right: @left;
+        margin-right: @element;
     }
 }
 
@@ -53,10 +54,17 @@ body {
     .toplevel-padded();
 }
 
-#button {
+#buttons {
     display: flex;
     .toplevel-padded();
     @media screen and (max-width: 720px) {
         flex-direction: column;
+    }
+}
+
+.button {
+    margin-right: @sep-between-element;
+    @media screen and (max-width: 720px) {
+        margin-bottom: @sep-between-element;
     }
 }
