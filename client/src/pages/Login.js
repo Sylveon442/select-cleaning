@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import {Input, Button} from 'antd';
+import axios from 'axios'
 
 class Login extends Component {
 
     async sendCode() {
-        console.log('test');
+        alert('Use code 123456 for user testing')
         this.setState({timeout: 30, codeEnabled: false})
         while(this.state.timeout > 0){
             await new Promise( res => setTimeout(res, 1000) );
@@ -12,6 +13,22 @@ class Login extends Component {
             this.setState({codeText: this.state.timeout})
         }
         this.setState({'codeText': 'Send Again', codeEnabled: true})
+    }
+
+    async login() {
+        const res = await axios.put('http://localhost:5000/users', {phone: this.state.phone, code: this.state.code}
+        )
+        console.log(res);
+    }
+
+    async register() {
+        const res = await axios.post('http://localhost:5000/users', {phone: this.state.phone, code: this.state.code}
+        )
+        console.log(res);
+    }
+
+    componentDidMount() {
+        console.log('hello')
     }
 
     constructor(props) {
@@ -56,8 +73,8 @@ class Login extends Component {
                     </Input.Group>
                 </div>
                 <div id='buttons'>
-                    <Button className="button" type='primary'>Login</Button>
-                    <Button className="button">Register</Button>
+                    <Button className="button" type='primary' onClick={() => this.login()}>Login</Button>
+                    <Button className="button" onClick={() => this.register()}>Register</Button>
                 </div>
             </div>
         );
