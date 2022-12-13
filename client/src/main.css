@@ -1,3 +1,7 @@
+html {
+  background-color: bisque;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .toplevel-padded {
   padding: 1em;
   padding-left: 3.5em;
@@ -39,15 +43,32 @@ body {
   font-size: 32px;
   padding-bottom: 20px;
 }
+.input-common {
+  display: flex;
+  margin-bottom: 20px;
+}
 .input {
+  display: flex;
   margin-bottom: 20px;
   width: 30vw;
 }
 @media screen and (max-width: 720px) {
   .input {
     width: auto;
-    margin-right: 3.5em;
+    margin-right: 1em;
   }
+}
+#input-with-code {
+  width: 22vw;
+}
+@media screen and (max-width: 720px) {
+  #input-with-code {
+    width: auto;
+    margin-right: 23em;
+  }
+}
+#code {
+  width: 22vw;
 }
 #login {
   display: flex;
@@ -60,18 +81,26 @@ body {
     padding-left: 1em;
   }
 }
-#button {
+#buttons {
   display: flex;
   padding: 1em;
   padding-left: 3.5em;
 }
 @media screen and (max-width: 720px) {
-  #button {
+  #buttons {
     padding-left: 1em;
   }
 }
 @media screen and (max-width: 720px) {
-  #button {
+  #buttons {
     flex-direction: column;
+  }
+}
+.button {
+  margin-right: 20px;
+}
+@media screen and (max-width: 720px) {
+  .button {
+    margin-bottom: 20px;
   }
 }

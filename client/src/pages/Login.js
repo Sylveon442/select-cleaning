@@ -3,22 +3,61 @@ import {Input, Button} from 'antd';
 
 class Login extends Component {
 
+    async sendCode() {
+        console.log('test');
+        this.setState({timeout: 30, codeEnabled: false})
+        while(this.state.timeout > 0){
+            await new Promise( res => setTimeout(res, 1000) );
+            this.setState({timeout: this.state.timeout - 1})
+            this.setState({codeText: this.state.timeout})
+        }
+        this.setState({'codeText': 'Send Again', codeEnabled: true})
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            codeText: 'Send Verification Code',
+            timeout: 30,
+            codeEnabled: true,
+            phone:'',
+            code:'',
+        }
+    }
+
     render() {
         return (
             <div id="page-flex">
-                <div id='header'>服务人员管理系统</div>
+                <div id='header'>Azalea CleanMS</div>
                 <div id='welcome'>
-                    <div id='banner'>欢迎光临香蜜至家人员管理系统！</div>
-                    <div>登录或创建一个账号</div>
-                    <div>客户可以在香蜜至家小程序中与我们的人员取得联系</div>
+                    <div id='banner'>Welcome to Azalea CleanMS!</div>
+                    <div>Login or create an account</div>
+                    <div>Customers can contact your appointed servicing agent on 
+                        <a href='https://t.me/minami1118'> Telegram</a>
+                    </div>
                 </div>
                 <div id='login'>
-                    <Input className='input' />
-                    <Input className='input' />
+                    <Input
+                     className='input' 
+                     placeholder="Mobile Number"
+                     value={this.state.phone}
+                     onChange={(e) => this.setState({phone: e.target.value})} />
+                    <Input.Group compact>
+                        <Input 
+                        id="input-with-code" 
+                        placeholder="Verification Code"
+                        value={this.state.code}
+                        onChange={(e) => this.setState({code: e.target.value})}/>
+                        <Button
+                         className="button"
+                         onClick={() => this.sendCode()} 
+                         disabled={!this.state.codeEnabled}
+                         > {this.state.codeText}</Button>
+                    </Input.Group>
                 </div>
                 <div id='buttons'>
-                    <Button className="button" type='primary'>登录</Button>
-                    <Button className="button">注册</Button>
+                    <Button className="button" type='primary'>Login</Button>
+                    <Button className="button">Register</Button>
                 </div>
             </div>
         );

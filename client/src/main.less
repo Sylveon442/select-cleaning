@@ -4,6 +4,7 @@
 
 html {
     background-color: bisque;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .toplevel-padded {
@@ -39,13 +40,29 @@ body {
     padding-bottom: @sep-between-element;
 }
 
-.input {
+.input-common {
+    display: flex;
     margin-bottom: @sep-between-element;
+}
+
+.input {
+    .input-common();
     width: 30vw;
     @media screen and (max-width: 720px) {
         width: auto;
         margin-right: @element;
     }
+}
+
+#input-with-code {
+    width: 22vw;
+    @media screen and (max-width: 720px) {
+        width: auto;
+        margin-right: @element + 22vw;
+    }
+}
+#code {
+    width: 22vw;
 }
 
 #login {
