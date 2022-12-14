@@ -16,19 +16,43 @@ class Login extends Component {
     }
 
     async login() {
-        const res = await axios.put('http://localhost:5000/users', {phone: this.state.phone, code: this.state.code}
-        )
-        console.log(res);
+
+        try {
+            const res = await axios.put('http://localhost:5000/users', {phone: this.state.phone, code: this.state.code})
+            
+        } catch (error) {
+            if(error.response.status === 404) {
+                alert('user not found!')
+                return;
+            } else if (error.response.status === 403) {
+                alert ('please enter a correct verification code!')
+                return;
+            }
+        }
+        // write into local storage
+
     }
 
     async register() {
-        const res = await axios.post('http://localhost:5000/users', {phone: this.state.phone, code: this.state.code}
-        )
-        console.log(res);
+        
+        try {
+            const res = await axios.post('http://localhost:5000/users', {phone: this.state.phone, code: this.state.code})
+            
+        } catch (error) {
+            if(error.response.status === 404) {
+                alert('user not found!')
+                return;
+            } else if (error.response.status === 403) {
+                alert ('please enter a correct verification code!')
+                return;
+            }
+        }
+        // write into local storage
     }
 
     componentDidMount() {
         console.log('hello')
+        // read local storage
     }
 
     constructor(props) {
